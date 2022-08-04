@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Body, Controller, Get,Post } from '@nestjs/common';
 import { UserService } from './user.service';
 
