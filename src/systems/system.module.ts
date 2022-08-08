@@ -6,8 +6,8 @@ import { SystemSchema } from './system.model';
 import { SystemService } from './system.service';
 
 @Module({
-  imports: [MongooseModule.forFeature([{name: 'User', schema: SystemSchema}])],
+  imports: [MongooseModule.forFeature([{name: 'System', schema: SystemSchema}])],
   controllers: [SystemController],
   providers: [SystemService],
 })
-export class UserModule {}
+export class SystemModule {}

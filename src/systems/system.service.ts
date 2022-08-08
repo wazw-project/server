@@ -9,16 +9,13 @@ export class SystemService {
 
   constructor(@InjectModel('System') private readonly systemModel: Model<System> ) { }
 
-  async AddSystem(topic:string,objectName:string,description:string,communication:string){
+  async addSystem(topic:string,objectName:string,description:string,communication:string){
     const newSystem = new this.systemModel({topic,objectName,description,communication});
     const result=  await newSystem.save();
     console.log(result);
   }
-  async GetSystem() {
+  async getSystem() {
     const result = await this.systemModel.find();
     return result;
   }
-
-
-
 }

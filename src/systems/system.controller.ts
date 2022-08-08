@@ -8,7 +8,7 @@ export class SystemController {
 
     @Get()
     getAll() {
-        return this.systemService.GetSystem();
+        return this.systemService.getSystem();
     }
 
     @Post('addSystem')
@@ -18,7 +18,9 @@ export class SystemController {
         @Body('description') description: string,
         @Body('communication') communication: string
     ) {
-        return this.systemService.AddSystem(topic, objectName, description, communication);
+        return this.systemService.addSystem(topic, objectName, description, communication);
     }
+    
+
 
 }
