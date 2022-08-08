@@ -18,4 +18,10 @@ export class SystemService {
     const result = await this.systemModel.find();
     return result;
   }
+  async delete(id: string) {
+    const deletedSystem = await this.systemModel
+      .findByIdAndRemove({ _id: id })
+      .exec();
+    return deletedSystem;
+  }
 }

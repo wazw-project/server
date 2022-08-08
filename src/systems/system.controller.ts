@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post,Param } from '@nestjs/common';
 import { SystemService } from './system.service';
 
 @Controller('system')
@@ -21,6 +21,9 @@ export class SystemController {
         return this.systemService.addSystem(topic, objectName, description, communication);
     }
     
-
+    @Delete(':id')
+    async delete(@Param('id') id: string) {
+      return this.systemService.delete(id);
+    }
 
 }
