@@ -17,9 +17,8 @@ export class SystemController {
         @Body('objectName') objectName: string,
         @Body('description') description: string,
         @Body('communication') communication: string
-    ) 
-    {
-        return this.systemService.AddSystem(topic,objectName,description,communication);
+    ) {
+        return this.systemService.AddSystem(topic, objectName, description, communication);
     }
 
 }
