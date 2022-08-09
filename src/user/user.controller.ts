@@ -10,6 +10,7 @@ export class UserController {
   @Get()
   getAll() {
     return  this.userService.getUsers();
+    
   }
   @Get(':id')
   getUserById(@Param('id') managerId: string) {

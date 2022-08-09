@@ -10,15 +10,21 @@ export class UserService {
   constructor(@InjectModel('User') private readonly userModel: Model<User>) { }
 
   async AddUser(role: Role, firstName: string, lastName: string, phone: string, email: string) {
-    const newUser = new this.userModel({ role, firstName, lastName, phone, email });
-    const result = await newUser.save();
-    console.log(result);
+    try {
+      const newUser = new this.userModel({ role, firstName, lastName, phone, email });
+      const result = await newUser.save();
+      return result
+    }
+    catch(error){
+       return error
+    }
+    
   }
   async getUsers() {
     try {
       const result = await this.userModel.find().exec();
       return result;
-     
+
     }
     catch (err) {
       return err
@@ -45,8 +51,8 @@ export class UserService {
   }
 
 
-  async updateUser(id:string,role: Role, firstName: string, lastName: string, phone: string, email: string) {
-    try{
+  async updateUser(id: string, role: Role, firstName: string, lastName: string, phone: string, email: string) {
+    try {
       const updateSystem = await this.userModel.findById(id)
       if (role) { updateSystem.role = role }
       if (firstName) { updateSystem.firstName = firstName }
@@ -54,11 +60,12 @@ export class UserService {
       if (email) { updateSystem.email = email }
       if (phone) { updateSystem.phone = phone }
       updateSystem.save();
+      return updateSystem
     }
-    catch(error){
+    catch (error) {
       return error
     }
-   
+
 
   }
 }
