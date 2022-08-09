@@ -1,16 +1,23 @@
 /* eslint-disable prettier/prettier */
 import * as mongoose from 'mongoose';
+import {User} from '../user/user.model'
 export const SystemSchema = new mongoose.Schema({
-	topic:{type:String},
-	objectName:{type:String},
-	// managerUid:{type:String},
-    description:{type:String},
-	communication :{type:String},
+	topic:{type:String,require:true},
+	objectName:{type:String,require:true},
+    managerUid:{type: mongoose.Schema.Types.ObjectId, ref: 'User',require:true} ,
+    description:{type:String,require:true},  
+	email :{type:String,require:true},
+    phone :{type:String,require:true},
+    urlName:{type:String,unique:true,require:true},
+    urlImage:{type:String,require:true}
 });
 export interface System {
    topic:string,
    objectName:string,
-//    managerUid:string,
+    managerUid: mongoose.Schema.Types.ObjectId,
    description:string,
-   communication:string
+   email:string,
+   phone:string,
+   urlName:string,
+   urlImage:string
 }
