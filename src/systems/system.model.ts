@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import * as mongoose from 'mongoose';
-import {User} from '../user/user.model'
 export const SystemSchema = new mongoose.Schema({
 	topic:{type:String,require:true},
 	objectName:{type:String,require:true},
