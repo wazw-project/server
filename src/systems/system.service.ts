@@ -46,21 +46,32 @@ export class SystemService {
 
   }
   async delete(id: string) {
-    const deletedSystem = await this.systemModel
+    try{
+      const deletedSystem = await this.systemModel
       .findByIdAndRemove({ _id: id })
       .exec();
     return deletedSystem;
+    }catch(error){
+      return error
+    }
+   
   }
   async updateSystem(systemId: string, topic: string, objectName: string, description: string, email: string, phone: string, urlName: string, urlImage: string) {
-    const updateSystem = await this.systemModel.findById(systemId)
-    if (topic) { updateSystem.topic = topic }
-    if (objectName) { updateSystem.objectName = objectName }
-    if (description) { updateSystem.description = description }
-    if (email) { updateSystem.email = email }
-    if (phone) { updateSystem.phone = phone }
-    if (urlName) { updateSystem.urlName = urlName }
-    if (urlImage) { updateSystem.urlImage = urlImage }
-    updateSystem.save();
+    try{
+      const updateSystem = await this.systemModel.findById(systemId)
+      if (topic) { updateSystem.topic = topic }
+      if (objectName) { updateSystem.objectName = objectName }
+      if (description) { updateSystem.description = description }
+      if (email) { updateSystem.email = email }
+      if (phone) { updateSystem.phone = phone }
+      if (urlName) { updateSystem.urlName = urlName }
+      if (urlImage) { updateSystem.urlImage = urlImage }
+      updateSystem.save();
+    }
+    catch(error){
+      return error
+    }
+   
 
   }
 }
