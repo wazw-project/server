@@ -13,9 +13,11 @@ export class SystemService {
     const newSystem = new this.systemModel({topic,objectName,description,communication});
     const result=  await newSystem.save();
     console.log(result);
+    return result;
+   
   }
   async getSystem() {
-    const result = await this.systemModel.find();
+    const result = await this.systemModel.find().exec();
     return result;
   }
   async delete(id: string) {
@@ -23,5 +25,14 @@ export class SystemService {
       .findByIdAndRemove({ _id: id })
       .exec();
     return deletedSystem;
+  }
+  async updateSystem(systemId:string, topic, objectName, description, communication) {
+    const updateSystem = await this.systemModel.findById(systemId)
+    if (topic) { updateSystem.topic = topic }
+    if (objectName) { updateSystem.objectName = objectName }
+    if (description) { updateSystem.description = description }
+    if (communication) { updateSystem.communication = communication }
+    updateSystem.save();
+
   }
 }
