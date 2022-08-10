@@ -12,9 +12,9 @@ export class UserController {
     return  this.userService.getUsers();
     
   }
-  @Get(':id')
-  getUserById(@Param('id') managerId: string) {
-      return this.userService.getUserById(managerId);
+  @Get(':email')
+  getUserById(@Param('email') managerEmail: string) {
+      return this.userService.getUserByEmail(managerEmail);
   }
   @Post('addUser')
   signup(@Body('role') role:Role,

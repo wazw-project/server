@@ -13,7 +13,7 @@ export class UserService {
     try {
       const newUser = new this.userModel({ role, firstName, lastName, phone, email });
       const result = await newUser.save();
-      return result
+      return result;
     }
     catch(error){
        return error
@@ -31,9 +31,9 @@ export class UserService {
     }
   }
 
-  async getUserById(id: string) {
+  async getUserByEmail(email: string) {
     try {
-      const newUser = await this.userModel.findById(id).exec();
+      const newUser = await this.userModel.findOne({email:email}).exec();
       return newUser
     } catch (error) {
       return error
