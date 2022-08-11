@@ -12,17 +12,18 @@ export class UserController {
     return  this.userService.getUsers();
     
   }
-  @Get(':email')
-  getUserById(@Param('email') managerEmail: string) {
-      return this.userService.getUserByEmail(managerEmail);
+  @Get(':fireBaseUid')
+  getUserById(@Param('fireBaseUid') fireBaseUid: string) {
+      return this.userService.getUserByFireBaseUid(fireBaseUid);
   }
   @Post('addUser')
-  signup(@Body('role') role:Role,
+  signup(@Body('fireBaseUid') fireBaseUid:string,
+        @Body('role') role:Role,
         @Body('firstName') firstName:string,
         @Body('lastName') lastName:string,
         @Body('phone') phone:string,
         @Body('email') email:string){
-    return this.userService.AddUser(role,firstName,lastName,phone,email);
+    return this.userService.AddUser(fireBaseUid,role,firstName,lastName,phone,email);
   }
   @Delete(':id')
   async delete(@Param('id') id: string) {

@@ -9,9 +9,9 @@ export class UserService {
 
   constructor(@InjectModel('User') private readonly userModel: Model<User>) { }
 
-  async AddUser(role: Role, firstName: string, lastName: string, phone: string, email: string) {
+  async AddUser(fireBaseUid:string,role: Role, firstName: string, lastName: string, phone: string, email: string) {
     try {
-      const newUser = new this.userModel({ role, firstName, lastName, phone, email });
+      const newUser = new this.userModel({fireBaseUid, role, firstName, lastName, phone, email });
       const result = await newUser.save();
       return result;
     }
@@ -31,9 +31,9 @@ export class UserService {
     }
   }
 
-  async getUserByEmail(email: string) {
+  async getUserByFireBaseUid(Uid: string) {
     try {
-      const newUser = await this.userModel.findOne({email:email}).exec();
+      const newUser = await this.userModel.findOne({fireBaseUid:Uid}).exec();
       return newUser
     } catch (error) {
       return error
