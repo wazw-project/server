@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Delete, Get, Post, Put, Param } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Put, Param,Headers } from '@nestjs/common';
 import { SystemService } from './system.service';
 import * as mongoose from 'mongoose';
 @Controller('system')
@@ -7,7 +7,8 @@ export class SystemController {
     constructor(private systemService: SystemService) { }
 
     @Get(':id')
-    getAll(@Param('id') managerId: string) {
+    getAll(@Param('id') managerId: string, @Headers() headers) {
+        console.log(headers.authorization);
         return this.systemService.getSystem(managerId);
     }
     @Get('systemById/:id')
