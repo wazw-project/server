@@ -2,16 +2,17 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Role, User } from './user.model';
+import { User } from './user.model';
+
 
 @Injectable()
 export class UserService {
 
   constructor(@InjectModel('User') private readonly userModel: Model<User>) { }
 
-  async AddUser(fireBaseUid:string,role: Role, firstName: string, lastName: string, phone: string, email: string) {
+  async AddUser(fireBaseUid:string, firstName: string, lastName: string, phone: string, email: string) {
     try {
-      const newUser = new this.userModel({fireBaseUid, role, firstName, lastName, phone, email });
+      const newUser = new this.userModel({fireBaseUid, firstName, lastName, phone, email });
       const result = await newUser.save();
       return result;
     }
@@ -51,10 +52,9 @@ export class UserService {
   }
 
 
-  async updateUser(id: string, role: Role, firstName: string, lastName: string, phone: string, email: string) {
+  async updateUser(id: string, firstName: string, lastName: string, phone: string, email: string) {
     try {
       const updateSystem = await this.userModel.findById(id)
-      if (role) { updateSystem.role = role }
       if (firstName) { updateSystem.firstName = firstName }
       if (lastName) { updateSystem.lastName = lastName }
       if (email) { updateSystem.email = email }
