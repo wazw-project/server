@@ -18,7 +18,7 @@ export class RequestController {
 
     @Post('addRequest')
    
-    addMarker(
+    addRequest(
      
         @Body('firstName') firstName: string,
         @Body('lastName') lastName: string,     
