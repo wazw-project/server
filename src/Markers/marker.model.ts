@@ -6,7 +6,7 @@ export const MarkerSchema = new mongoose.Schema({
     manager_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Managers' ,require: true},
     system_id: {type: mongoose.Schema.Types.ObjectId,ref: 'System' ,require: true},
     lat: {type:Number,require: true},
-    len: {type:Number,require: true},
+    lng: {type:Number,require: true},
     description:{ type: String, require: true },
     name: { type: String, require: true },
     notes: { type: String, require: true },
