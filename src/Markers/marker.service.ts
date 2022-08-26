@@ -13,14 +13,14 @@ export class MakerService {
     manager_id: mongoose.Schema.Types.ObjectId,
     system_id: mongoose.Schema.Types.ObjectId,
     lat: number,
-    len: number,
+    lng: number,
     description:string,
     name: string,
     notes: string,
     email: string,
     phone: string) {
     try {
-      const newMarker = new this.markerModel({manager_id,system_id,lat,len,description,name,notes,email,phone  });
+      const newMarker = new this.markerModel({manager_id,system_id,lat,lng,description,name,notes,email,phone  });
       const result = await newMarker.save();
       console.log(result);
       return result;
@@ -62,7 +62,7 @@ export class MakerService {
   async updateMarker( 
     system_id: string,
     lat: number,
-    len: number,
+    lng: number,
     description:string,
     name: string,
     notes: string,
@@ -71,7 +71,7 @@ export class MakerService {
     try{
       const updateSystem = await this.markerModel.findById(system_id)
       if (lat) { updateSystem.lat = lat }
-      if (len) { updateSystem.len = len }
+      if (lng) { updateSystem.lng = lng }
       if (description) { updateSystem.description = description }
       if (email) { updateSystem.email = email }
       if (phone) { updateSystem.phone = phone }

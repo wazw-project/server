@@ -18,7 +18,7 @@ export interface Marker {
     manager_id: mongoose.Schema.Types.ObjectId,
     system_id: mongoose.Schema.Types.ObjectId,
     lat: number
-    len: number
+    lng: number
     description:string
     name: string
     notes: string

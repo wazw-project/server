@@ -31,6 +31,7 @@ export class ManagersController {
         return this.managerService.addManagers(user_id,system_id,active,display_name,role,invitation_sent);
     }
 
+
     @Delete(':id')
     async delete(@Param('id') id: string) {
         return this.managerService.delete(id);

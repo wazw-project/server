@@ -25,7 +25,7 @@ export class MarkerController {
         @Body('notes') notes: string,
         @Body('name') email: string,
         @Body('phone') phone: string,   
-        @Body('len') len: number,
+        @Body('lng') len: number,
         @Body('lat') lat: number,
         @Body('name') name: string,
     ) {
@@ -44,7 +44,7 @@ export class MarkerController {
     @Body('notes') notes: string,
     @Body('name') email: string,
     @Body('phone') phone: string,   
-    @Body('len') len: number,
+    @Body('lng') len: number,
     @Body('lat') lat: number,
     @Body('name') name: string,) {
         return this.markerService.updateMarker(id,lat,len,description,name,notes,email,phone);     
