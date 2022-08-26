@@ -9,18 +9,18 @@ export class MakerService {
 
   constructor(@InjectModel('Marker') private readonly markerModel: Model<Marker>) { }
 
-  async addMarker( 
+  async addMarker(
     manager_id: mongoose.Schema.Types.ObjectId,
     system_id: mongoose.Schema.Types.ObjectId,
-    lat: number,
-    lng: number,
-    description:string,
+    location:{lat: number,
+    lng: number},
+    description: string,
     name: string,
     notes: string,
     email: string,
     phone: string) {
     try {
-      const newMarker = new this.markerModel({manager_id,system_id,lat,lng,description,name,notes,email,phone  });
+      const newMarker = new this.markerModel({ manager_id, system_id,location, description, name, notes, email, phone });
       const result = await newMarker.save();
       console.log(result);
       return result;
@@ -39,7 +39,7 @@ export class MakerService {
     }
   }
   async getMarkersBySystemId(id) {
-    try {    
+    try {
       const result = await this.markerModel.find({ "system_id": id }).exec();
       return result;
     }
@@ -49,29 +49,32 @@ export class MakerService {
   }
 
   async delete(id: string) {
-    try{
+    try {
       const deletedMarker = await this.markerModel
-      .findByIdAndRemove({ _id: id })
-      .exec();
-    return deletedMarker;
-    }catch(error){
+        .findByIdAndRemove({ _id: id })
+        .exec();
+      return deletedMarker;
+    } catch (error) {
       return error
     }
-   
+
   }
-  async updateMarker( 
+  async updateMarker(
     system_id: string,
-    lat: number,
-    lng: number,
-    description:string,
+    location: {
+      lat: number,
+      lng: number
+    },
+    description: string,
     name: string,
     notes: string,
     email: string,
     phone: string) {
-    try{
+    try {
       const updateSystem = await this.markerModel.findById(system_id)
-      if (lat) { updateSystem.lat = lat }
-      if (lng) { updateSystem.lng = lng }
+    
+       if (location.lat) { updateSystem.location.lat = location.lat }
+      if (location.lng) { updateSystem.location.lng = location.lng }
       if (description) { updateSystem.description = description }
       if (email) { updateSystem.email = email }
       if (phone) { updateSystem.phone = phone }
@@ -79,10 +82,10 @@ export class MakerService {
       if (notes) { updateSystem.notes = notes }
       updateSystem.save();
     }
-    catch(error){
+    catch (error) {
       return error
     }
-   
+
 
   }
 }

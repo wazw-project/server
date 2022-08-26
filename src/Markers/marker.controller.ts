@@ -24,12 +24,12 @@ export class MarkerController {
         @Body('description') description:string,
         @Body('notes') notes: string,
         @Body('name') email: string,
-        @Body('phone') phone: string,   
-        @Body('lng') lng: number,
-        @Body('lat') lat: number,
+        @Body('phone') phone: string,
+       @Body('location')location:{lat:number,lng:number},
+       
         @Body('name') name: string,
     ) {
-        return this.markerService.addMarker(manager_id,system_id,lat,lng,description,name,notes,email,phone);
+        return this.markerService.addMarker(manager_id,system_id,location,description,name,notes,email,phone);
     }
 
     @Delete(':id')
@@ -44,10 +44,9 @@ export class MarkerController {
     @Body('notes') notes: string,
     @Body('name') email: string,
     @Body('phone') phone: string,   
-    @Body('lng') len: number,
-    @Body('lat') lat: number,
+    @Body('location')location:{lat:number,lng:number},
     @Body('name') name: string,) {
-        return this.markerService.updateMarker(id,lat,len,description,name,notes,email,phone);     
+        return this.markerService.updateMarker(id,location,description,name,notes,email,phone);     
     }
 
 }
