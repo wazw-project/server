@@ -27,8 +27,9 @@ export class RequestController {
         @Body('display_name') display_name: string,
         @Body('notes') notes: string,
         @Body('system_id') system_id: mongoose.Schema.Types.ObjectId,
+        @Body('location')location:{lat:number,lng:number},
     ) {
-        return this.requestService.addRequest(firstName,lastName,email,phone,system_id,display_name,notes);
+        return this.requestService.addRequest(firstName,lastName,email,phone,system_id,display_name,notes,location);
     }
 
     @Delete(':id')

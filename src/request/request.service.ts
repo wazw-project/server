@@ -15,11 +15,15 @@ export class RequestService {
     email: string,
     phone: string,
     system_id: mongoose.Schema.Types.ObjectId,
-    display_name: string,
+    display_name: string, 
+    notes: string,
+    location:
+    {lat: number,
+      lng: number}
    
-    notes: string) {
+    ) {
     try {
-      const newRequest = new this.requestModel({firstName,lastName,email,phone,system_id,display_name,notes});
+      const newRequest = new this.requestModel({firstName,lastName,email,phone,system_id,display_name,notes,location});
       const result = await newRequest.save();
       console.log(result);
       return result;

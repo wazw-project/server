@@ -13,6 +13,8 @@ export const RequestSchema = new mongoose.Schema({
     display_name: { type: String, require: true },
     status: { type: String,enum:Status,default:Status.SENT, require: true },
     notes: { type: String, require: true },
+    location:{ lat: { type: Number, require: true },
+    lng: { type: Number, require: true }}
 
 });
 
@@ -25,5 +27,9 @@ export interface Request {
     system_id: mongoose.Schema.Types.ObjectId,
     display_name: string
     status: Status,
-    notes: string
+    notes: string,
+    location: {
+        lat: number
+        lng: number
+    }
 }
