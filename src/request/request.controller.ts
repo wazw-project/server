@@ -22,7 +22,7 @@ export class RequestController {
      
         @Body('firstName') firstName: string,
         @Body('lastName') lastName: string,     
-        @Body('name') email: string,
+        @Body('email') email: string,
         @Body('phone') phone: string,       
         @Body('display_name') display_name: string,
         @Body('notes') notes: string,
