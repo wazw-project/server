@@ -11,6 +11,11 @@ export class SystemController {
         console.log(headers.authorization);
         return this.systemService.getSystem(managerId);
     }
+    @Get()
+    getAllSystem() {
+      
+        return this.systemService.getAllSystem();
+    }
     @Get('systemById/:id')
     getById(@Param('id') id: string) {
         return this.systemService.getSystemById(id)

@@ -36,6 +36,15 @@ export class SystemService {
       console.log(err)
     }
   }
+  async getAllSystem() {
+    try {
+      const result = await this.systemModel.find().exec();
+      return result;
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
   async getSystemById(id: string) {
     try {
       const result = await this.systemModel.findById(id).exec();
