@@ -12,8 +12,9 @@ export class ManagersController {
         
         return this.managerService.getManagersById(managerId);
     }
-    @Get(':id')
-    getByManagerByUserIdAndSystemId(@Param('id') userId: string, @Body('system_id') system_id: string,) {
+    @Get(':id/:systemId')
+    getByManagerByUserIdAndSystemId(@Param('id') userId: string, @Param('systemId') system_id: string,) 
+    {
         return this.managerService.getByManagerByUserIdAndSystemId(userId,system_id)
     }
 
