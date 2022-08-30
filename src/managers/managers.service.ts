@@ -26,9 +26,9 @@ export class ManagersService {
       console.log(err)
     }
   }
-  async getByManagerByUserIdAndSystemId(system_id,user_id) {
+  async getByManagerByUserIdAndSystemId(user_id,system_id) {
     try {
-      const result = await this.managersModel.find({"system_id":system_id,"user_id":user_id}).exec();
+      const result = await this.managersModel.findOne({"system_id":system_id,"user_id":user_id}).exec();
       return result;
     }
     catch (err) {
