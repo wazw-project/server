@@ -8,7 +8,8 @@ import { RequestModule } from './request/request.module';
 import { ManagersModule } from './managers/managers.module';
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/waze-project'),
+    //mongodb://localhost:27017/waze-project
+    MongooseModule.forRoot('mongodb+srv://naama_frank-kod:VWSi2A2igrlqgFCw@cluster0.sddzqju.mongodb.net/waze-final-project?retryWrites=true&w=majority'),                              
     UserModule,
     SystemModule,
     MarkerModule,
