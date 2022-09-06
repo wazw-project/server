@@ -1,7 +1,7 @@
 runtime: nodejs16 
 env: standard
 service: default
-
+port: 8080
 # instance_class: F1
 
 automatic_scaling:
