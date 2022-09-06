@@ -22,7 +22,7 @@
     "gcp-build": "npm run build",
     "ae:deploy": "gcloud app deploy --quiet",
     "ae:browse": "gcloud app browse",
-    "@nestjs/cli": "^8.0.0"
+    "@nestjs/cli": "^9.0.0"
   },
   "dependencies": {
     "@nestjs/cli": "^9.0.0",
