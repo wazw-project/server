@@ -1,6 +1,7 @@
 runtime: nodejs16 
 env: standard
 service: default
+
 # instance_class: F1
 
 automatic_scaling:
@@ -10,6 +11,7 @@ automatic_scaling:
   min_pending_latency: 30ms
   max_pending_latency: automatic
   max_concurrent_requests: 50
+
 # manual_scaling:
 #   instances: 1
 # resources:
