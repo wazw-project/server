@@ -6,7 +6,7 @@ import { SystemModule } from './systems/system.module';
 import { MarkerModule } from './Markers/marker.module';
 import { RequestModule } from './request/request.module';
 import { ManagersModule } from './managers/managers.module';
-import { PreauthMiddleware } from './auth/preauth.middleware';
+
 // import { ConfigModule } from '@nestjs/config';
 
 @Module({
@@ -25,11 +25,11 @@ import { PreauthMiddleware } from './auth/preauth.middleware';
   providers: [],
 })
 
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(PreauthMiddleware).forRoutes({
-      path: '*', method: RequestMethod.ALL
-    });
-    //console.log("aaa")
-  }
+export class AppModule {
+  // configure(consumer: MiddlewareConsumer) {
+  //   consumer.apply(PreauthMiddleware).forRoutes({
+  //     path: '*', method: RequestMethod.ALL
+  //   });
+  //   //console.log("aaa")
+  // }
 }
