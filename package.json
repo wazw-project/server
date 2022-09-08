@@ -9,7 +9,7 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start": "node dist/main.js",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -30,7 +30,6 @@
     "@nestjs/core": "^9.0.7",
     "@nestjs/mongoose": "^9.2.0",
     "@nestjs/platform-express": "^9.0.0",
-    "firebase": "^9.9.4",
     "mongoose": "^6.4.4",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
@@ -80,3 +79,4 @@
     "node": "16.15.1"
   }
 }
+
