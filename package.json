@@ -1,3 +1,5 @@
+
+
 {
   "name": "waze-project-server",
   "version": "0.0.1",
@@ -6,11 +8,10 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "node dist/main.js",
+    "start": "npm run start:prod",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -20,25 +21,22 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "gcp-build": "tsc -p .",
-    "ae:deploy": "gcloud app deploy --quiet",
-    "ae:browse": "gcloud app browse",
-    "@nestjs/cli": "^9.0.0"
+    "gcp-build": "npm run build"
   },
   "dependencies": {
-    "@nestjs/cli": "^9.0.0",
     "@nestjs/common": "^9.0.7",
     "@nestjs/core": "^9.0.7",
     "@nestjs/mongoose": "^9.2.0",
     "@nestjs/platform-express": "^9.0.0",
-    "mongoose": "^6.4.4",
+    "mongoose": "^6.5.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.6"
   },
   "devDependencies": {
+    "@nestjs/cli": "^9.1.2",
     "@nestjs/schematics": "^9.0.0",
-    "@nestjs/testing": "^9.0.0",
+    "@nestjs/testing": "^9.0.8",
     "@types/express": "^4.17.13",
     "@types/jest": "28.1.4",
     "@types/node": "^16.0.0",
@@ -48,7 +46,6 @@
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "firebase-admin": "^11.0.1",
     "jest": "28.1.2",
     "prettier": "^2.3.2",
     "source-map-support": "^0.5.20",
@@ -75,9 +72,5 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  },
-  "engines": {
-    "node": "16.15.1"
   }
 }
-
