@@ -7,7 +7,7 @@ import { MarkerModule } from './Markers/marker.module';
 import { RequestModule } from './request/request.module';
 import { ManagersModule } from './managers/managers.module';
 import { PreauthMiddleware } from './auth/preauth.middleware';
-import { ConfigModule } from '@nestjs/config';
+// import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
