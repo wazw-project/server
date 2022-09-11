@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export class Mail {
   to: string;
   from: string;

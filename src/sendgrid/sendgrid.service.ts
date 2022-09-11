@@ -1,5 +1,5 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import * as SendGrid from '@sendgrid/mail';
 import { Mail } from './sendgrid.model';
 
