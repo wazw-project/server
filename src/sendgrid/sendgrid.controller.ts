@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Controller, Post, Query } from '@nestjs/common';
 import { SendgridService } from 'src/sendgrid/sendgrid.service';
 
