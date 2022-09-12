@@ -33,4 +33,20 @@ export class SendgridService {
         console.log(error);
       });
   }
+  sendEmailManager(mail: SendGrid.MailDataRequired) {
+    console.log('mail service');
+    console.log(mail);
+    SendGrid.send(mail)
+      .then((res) => {
+        console.log(res);
+        const transport = res;
+        console.log(transport);
+        // avoid this on production. use log instead :)
+        console.log(`E-Mail sent to ${mail.to}`);
+        return transport;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 }

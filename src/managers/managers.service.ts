@@ -19,7 +19,7 @@ export class ManagersService {
     try {
       const newManagers = new this.managersModel({user_id,system_id,active,display_name,role,invitation_sent});
       const result = await newManagers.save();
-      console.log(result);
+      console.log("add manager: ",result);
       return result;
     }
     catch (err) {
@@ -28,7 +28,7 @@ export class ManagersService {
   }
   async getByManagerByUserIdAndSystemId(user_id,system_id) {
     try {
-      const result = await this.managersModel.findOne({"system_id":system_id,"user_id":user_id}).exec();
+      const result = await this.managersModel.findOne({"user_id":user_id,"system_id":system_id}).exec();
       return result;
     }
     catch (err) {
