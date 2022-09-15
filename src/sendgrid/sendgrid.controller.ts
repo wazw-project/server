@@ -43,6 +43,7 @@ export class SendgridController {
     console.log(mail);
     return await this.sendgridService.sendEmailManager(mail);
   }
+  @Post('/confirm')
   async sendEmailConfirm(@Query('email') email) {
     console.log('mail controller')
     const mail = {
