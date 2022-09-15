@@ -44,7 +44,7 @@ export class SendgridController {
     return await this.sendgridService.sendEmailManager(mail);
   }
   @Post('/confirm')
-  async sendEmailConfirm(@Query('email') email) {
+  async sendEmailConfirm(@Query('email') email,  @Body('userName') userName) {
     console.log('mail controller')
     const mail = {
       to: email,
@@ -52,6 +52,7 @@ export class SendgridController {
       from: 'searhsystem@gmail.com',
       text: 'Hello',
       html: `<h1>
+         ${userName},
              your request for open system confirm by manager, your marker added!!
           <h1/>
           <p>we happy for u, good luck🎉</p>
