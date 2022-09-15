@@ -49,4 +49,19 @@ export class SendgridService {
         console.log(error);
       });
   }
+  sendEmailConfirm(mail: SendGrid.MailDataRequired) {
+    console.log('mail service');
+    console.log(mail);
+    SendGrid.send(mail)
+      .then((res) => {
+        console.log(res);
+        const transport = res;
+        console.log(transport);
+        console.log(`E-Mail sent to ${mail.to}`);
+        return transport;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 }
