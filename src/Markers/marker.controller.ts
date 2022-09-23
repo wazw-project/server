@@ -42,7 +42,7 @@ export class MarkerController {
 
     @Body('description') description:string,
     @Body('notes') notes: string,
-    @Body('name') email: string,
+    @Body('email') email: string,
     @Body('phone') phone: string,   
     @Body('location')location:{lat:number,lng:number},
     @Body('name') name: string,) {
