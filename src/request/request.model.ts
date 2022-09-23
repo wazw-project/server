@@ -4,7 +4,6 @@ export enum Status {
     SENT, PENDING, APPROVE, REJECT
 }
 export const RequestSchema = new mongoose.Schema({
-
     firstName: { type: String, require: true },
     lastName: { type: String, require: true },
     email: { type: String },
@@ -16,7 +15,6 @@ export const RequestSchema = new mongoose.Schema({
     notes: { type: String, require: true },
     location:{ lat: { type: Number, require: true },
     lng: { type: Number, require: true }}
-
 });
 
 export interface Request {
