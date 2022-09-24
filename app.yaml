@@ -10,4 +10,4 @@ automatic_scaling:
   max_pending_latency: automatic
   max_concurrent_requests: 50
 env:
-  SEND_GRID_KEY: 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
+  # SEND_GRID_KEY: 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
