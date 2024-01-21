@@ -8,7 +8,6 @@ export class MarkerController {
 
     @Get(':id')
     getAll(@Param('id') ServiceId: string) {
-        
         return this.markerService.getMarker(ServiceId);
     }
     @Get('getBySystemId/:id')
