@@ -14,7 +14,8 @@ export class SendgridService {
     // The apiKey is required to authenticate our
     // request to SendGrid API.
     // this.configService.get<string>('SEND_GRID_KEY')
-    SendGrid.setApiKey(process.env.SEND_GRID_KEY);
+    // SendGrid.setApiKey(process.env.SEND_GRID_KEY);
+    SendGrid.setApiKey('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');
   }
 
   send(mail: SendGrid.MailDataRequired) {
